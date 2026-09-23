@@ -8,7 +8,7 @@ Base.metadata.create_all(bind=engine)
 
 app = FastAPI(title="Project Management API")
 
-# Middleware CORS (dari teman Anda)
+# Middleware CORS
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
@@ -23,6 +23,7 @@ app.add_middleware(
 # Router Endpoint (Auth & Projects)
 app.include_router(auth.router)
 app.include_router(projects.router)
+# app.include_router(epics.router)
 
 @app.get("/")
 def root():
